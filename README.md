@@ -44,6 +44,26 @@ In decimal, the two headline proportions are $`0.6734`$ and $`0.673401159168`$. 
 
 which is strictly larger than $`6734/10000`$. `C0.C0LtProjected.c0_lt_projectedRatio` is a `norm_num` proof that the twelve-digit rational itself sits strictly under that projection. The seven-digit display $`0.6734012`$ is a different rounding and is not the theorem. This tree has no library at $`673/1000`$.
 
+### Same proof, two propositions
+
+`N0Simple.Assembly.Endgame.dyadic_target` and `C0.DyadicTarget.dyadic_target_c0` lower-bound one counting function, $`N_0^s`$: the nontrivial zeros whose multiplicity is exactly $`1`$ and which lie on the critical line. Each dyadic form states that inequality at its own constant, with the constant unreduced by $`\varepsilon`$. The constants differ by the positive rational
+
+```math
+\frac{673401159168}{10^{12}}-\frac{6734}{10000}=\frac{1159168}{10^{12}}=\frac{283}{244140625},
+```
+
+and $`0 \lt 283/244140625`$. For every real $`N \ge 0`$ and every real $`M`$, the inequality at $`673401159168/10^{12}`$ implies the inequality at $`6734/10000`$. The converse is false for a general pair. When $`0 \lt N`$ and $`M = (6734/10000)\,N`$, the shorter inequality holds and the twelve-digit inequality fails. Specializing $`N`$ to $`N(T,2T)`$ and $`M`$ to $`N_0^s(T,2T)`$ makes the twelve-digit dyadic sentence the stronger requirement on that nonnegative count. The two sentences are two propositions. The rational $`673401159168/10^{12}`$ is a different rational from $`6734/10000`$.
+
+The constant $`c_0 = 673401159168/10^{12}`$ is the twelve-digit downward truncation of the projection
+
+```math
+\Pi=\frac{338173116}{502186715}=0.67340115916845789\ldots.
+```
+
+`C0.C0LtProjected.c0_lt_projectedRatio` is the comparison $`c_0 \lt \Pi`$. The value $`\Pi`$ itself is not an exported lower bound. The elimination accepts a constant strictly under $`\Pi`$, and `dyadic_target_c0` is instantiated at $`c_0`$. The local certificate remains the N0Simple certificate on the 132-point block.
+
+These sentences bound $`N_0^s`$. The counting function $`N_0`$ sums the multiplicities of the zeros on the critical line in the same ordinate window. A zero of multiplicity exactly $`1`$ on the line is counted by both. A zero of higher multiplicity on the line contributes that multiplicity to $`N_0`$ and contributes nothing to $`N_0^s`$.
+
 ## Where each package stops
 
 | Package | Lean entry | Proportion it exports |
@@ -67,6 +87,28 @@ The rows below are hypothesis-free, end-to-end Lean conclusions. Conditional arg
 | $`67.34\%`$ | seven points | **N0Simple**, in `n0simple/` |
 
 Among those rows, the $`67.34\%`$ theorem is, to our knowledge at the time of release, the strongest publicly available hypothesis-free end-to-end Lean bound of this kind. The twelve-digit theorem in `c0/` is a sharper admissible constant on that same proof.
+
+### Zeta23 theorems for the same count
+
+The row $`67.2500703679\ldots\%`$ is the decimal of $`\mathrm{HD}(1)`$, the constant of `thmD₀_simple_mult` in `zeta23/Zeta23/ThmD/Mult.lean` (around line 500). That constant is $`\mathrm{HD}(1)`$. The constant $`2/3`$ belongs to `thmB₀_mult`.
+
+Three theorems in `zeta23/` lower-bound a count comparable with $`N_0^s`$.
+
+| Theorem | Statement | Constant and shape |
+|---|---|---|
+| `thmB₀_mult` | `zeta23/Zeta23/FinalMult.lean`, around line 350 | $`2/3`$, shape $`(2/3-\varepsilon)`$ |
+| `thmD₀_simple` | `zeta23/Zeta23/ThmD/Final.lean`, around line 119 | $`2c_1^{*}-1 \approx 0.50659`$, Cauchy–Schwarz shape $`(2c_1^{*}-1-\varepsilon)`$ |
+| `thmD₀_simple_mult` | `zeta23/Zeta23/ThmD/Mult.lean`, around line 500 | $`\mathrm{HD}(1) \approx 0.672500703679`$, shape $`(\mathrm{HD}(1)-\varepsilon)`$ |
+
+`thmD₀_simple_mult` is the simple-zero headline in that library. In the Lean statement the Cauchy–Schwarz constant is `2 * cStar 1 - 1`, and the headline constant is `HD 1`. Their sizes stand in this order:
+
+```math
+2c_1^{*}-1 \lt \frac{2}{3} \lt \mathrm{HD}(1) \lt \frac{6734}{10000} \lt \frac{673401159168}{10^{12}}.
+```
+
+So $`2/3`$ is a weaker lower bound than $`\mathrm{HD}(1)`$, and $`2c_1^{*}-1 \approx 0.50659`$ is weaker still. The same real $`\mathrm{HD}(1)`$ is the constant of `thmD₀` in `zeta23/Zeta23/ThmD/Final.lean` (around line 105), which bounds $`N_0^{*}`$, the distinct zeros on the critical line. The simple-zero theorem uses that same value of $`\mathrm{HD}(1)`$.
+
+The N0Simple constant $`6734/10000`$ lies above $`\mathrm{HD}(1)`$. The constant $`c_0`$ lies above $`6734/10000`$ by $`283/244140625`$. The lower bound that increases is the lower bound for $`N_0^s`$. The dyadic shape tightens with the constant. Each of the three Zeta23 theorems has the form $`(c-\varepsilon)`$ for every $`\varepsilon`$ with $`0 \lt \varepsilon`$. The dyadic theorems `dyadic_target` and `dyadic_target_c0` state the inequality with no $`\varepsilon`$.
 
 The $`67.3\%`$ theorem kept the Montgomery–Taylor window. Its finite step has six gap variables and twenty-one pair distances. A direct subdivision of that box is too large to elaborate as a proof term, so the argument used a sparse phase-affine stand-in: a nonnegative 15-edge sub-objective, twelve reusable one-dimensional kernel phases, exact rational LP and Farkas witnesses at the leaves, and a certificate tree of 1,063 nodes and 532 leaves.
 
