@@ -1,0 +1,13 @@
+name = "n0simple"
+defaultTargets = ["N0Simple"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+
+[[require]]
+name = "Zeta23"
+path = "../zeta23"
+
+[[lean_lib]]
+name = "N0Simple"

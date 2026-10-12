@@ -1,0 +1,18 @@
+# Compiler and package-build products. Not part of the public source.
+.lake/
+**/.lake/
+*.olean
+*.ilean
+*.c
+*.hash
+*.trace
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local editor and OS files
+.DS_Store
+*.swp

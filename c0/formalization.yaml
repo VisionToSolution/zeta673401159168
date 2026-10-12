@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: v0.4
+project:
+  name: A Lean lower bound of 673401159168/10^12 for simple critical-line zeros of the zeta function
+  description: >
+    Two hypothesis-free Lean 4 theorems about Mathlib's riemannZeta. For all
+    sufficiently large T, the number of simple critical-line zeros with
+    imaginary part in (T, 2T] is at least (6734/10000) times the number of
+    nontrivial zeros in that window, counted with multiplicity. The same
+    counting inequality holds with the sharper constant 673401159168/10^12,
+    which is strictly below the frozen projection 338173116/502186715.
+    Both have cumulative forms with an arbitrary positive epsilon. Neither
+    is a proof of the Riemann hypothesis, and the sharper constant is not
+    the seven-digit display 0.6734012.
+  authors:
+    - tzy
+  responsible_maintainers:
+    - tzy
+  license: Apache-2.0
+classification:
+  arxiv:
+    - math.NT
+  msc2020:
+    - 11M06
+    - 11M26
+automation:
+  methods:
+    - method: agent
+      tool_setup: >
+        The corrected-window formalization and the sharper constant were
+        developed with coding agents. The submitted statements are the Lean
+        theorems named in c0/comparator.json.
+review:
+  status: unchecked
+sources:
+  - title: More than two thirds of the zeros of the Riemann zeta function are simple and on the critical line
+    authors:
+      - Levent Alpöge
+      - Ralph Furman
+    id: arXiv:2608.13637
+    type: paper
+    relationship: adapts
+    note: >
+      The analytic framework, trace asymptotics, and dyadic-to-cumulative
+      endgame are adapted from this paper's Zeta23 development. The submitted
+      constants 6734/10000 and 673401159168/10^12 are stronger than the
+      paper's 2/3 theorem and are not claims of that paper.
+  - title: zeta-exact-pressure corrected window and pair data
+    id: https://github.com/AMTOPA/zeta-exact-pressure
+    type: other
+    relationship: background
+    note: >
+      Source of the 17-term corrected window, pair loads, and pressure data
+      realized in N0Simple. The Lean proof uses rational slack and a 132-point
+      block, not the numerical projection itself.
+related_formalizations:
+  - id: https://github.com/anthropics/zeta-23-lean
+    relationship: builds-on
+    note: >
+      The zeta23/ directory is that development, pinned to mathlib
+      51e6992efd06126df61a496bebf8f49482a4e129. N0Simple and C0 import it.
+      The comparator statements reuse its Mathlib-only counting functions.

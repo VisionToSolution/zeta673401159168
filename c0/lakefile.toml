@@ -1,0 +1,31 @@
+name = "C0"
+defaultTargets = ["C0"]
+
+[leanOptions]
+pp.unicode.fun = true
+relaxedAutoImplicit = false
+
+[[require]]
+name = "n0simple"
+path = "../n0simple"
+
+[[require]]
+name = "Zeta23"
+path = "../zeta23"
+
+[[lean_lib]]
+name = "C0"
+
+# Comparator layer. Challenge and ChallengeDeps import Mathlib only.
+# Solution imports the proof. Not default targets.
+[[lean_lib]]
+name = "ChallengeDeps"
+srcDir = "comparator"
+
+[[lean_lib]]
+name = "Challenge"
+srcDir = "comparator"
+
+[[lean_lib]]
+name = "Solution"
+srcDir = "comparator"
