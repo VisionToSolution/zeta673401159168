@@ -83,7 +83,6 @@ The rows below are hypothesis-free, end-to-end Lean conclusions. Conditional arg
 | $`67.2500703679\ldots\%`$ | baseline | [Anthropic Zeta23](https://github.com/anthropics/zeta-23-lean) |
 | $`67.2737334504\ldots\%`$ | three points | [`teal-sea/zeta-lab`](https://github.com/teal-sea/zeta-lab) |
 | $`67.2847019767\ldots\%`$ | four points | [`teal-sea/zeta-lab`](https://github.com/teal-sea/zeta-lab) |
-| $`67.3\%`$ | seven points | an earlier Lean theorem, absent from this tree |
 | $`67.34\%`$ | seven points | **N0Simple**, in `n0simple/` |
 
 Among those rows, the $`67.34\%`$ theorem is, to our knowledge at the time of release, the strongest publicly available hypothesis-free end-to-end Lean bound of this kind. The twelve-digit theorem in `c0/` is a sharper admissible constant on that same proof.
